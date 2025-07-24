@@ -1,0 +1,20 @@
+apiVersion: skaffold/v4beta1
+kind: Config
+metadata:
+  name: spring-graphql-union-with-pagination
+build:
+  artifacts:
+    - image: spring-graphql-union-with-pagination
+      jib: {}
+  local:
+    push: false
+  tagPolicy:
+    gitCommit: {}
+deploy:
+  helm:
+    releases:
+      - name: spring-graphql-union-with-pagination
+        remoteChart: oci://git.genesis-platform.io:4567/engineering/engineering-templates/helm-charts/spring-boot-microservice/spring-boot-service
+        version: 0.2.0
+        setValues:
+          image.repository: spring-graphql-union-with-pagination

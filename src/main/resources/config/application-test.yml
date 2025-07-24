@@ -1,0 +1,7 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          platform:
+            client-secret: "5a0d536a-f703-4056-b715-59c7046011f9"

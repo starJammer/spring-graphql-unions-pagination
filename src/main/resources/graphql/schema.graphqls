@@ -1,0 +1,60 @@
+extend schema
+@link(url: "https://specs.apollo.dev/federation/v2.3",
+  import: ["@shareable"])
+
+# eslint-disable-next-line @graphql-eslint/require-description
+type Query {
+    """ returns a list of integers from 1 to 1000 """
+    integers(first: Int, after: String): IntegerConnection!
+    """ Same as above except the connection object is wrapped in a union """
+    integersUnion(first: Int, after: String): IntegerResult!
+}
+
+union IntegerResult = IntegerConnection | NoIntegersFound
+
+type IntegerConnection {
+    edges: [IntegerEdge]!
+    pageInfo: PageInfo
+}
+
+type NoIntegersFound {
+    message: String!
+}
+
+type IntegerEdge {
+    node: Int
+    cursor: String
+}
+
+# eslint-disable
+"""
+PageInfo defined for Relay Pagination specification
+See: https://relay.dev/graphql/connections.htm#sec-undefined.PageInfo
+"""
+type PageInfo @shareable {
+  hasPreviousPage: Boolean!
+  hasNextPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+# eslint-enable
+
+
+"""
+Required by Relay.
+All 'node' fields of an Edge type MUST
+implement this interface.
+
+Not fully true but right now the linter
+enforces it. If it's a problem we can
+think about updating this.
+"""
+interface Node {
+    """
+    All nodes in an edge should provide an
+    id at a minimum in order to generate a
+    cursor.
+    """
+    id: ID!
+}

@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: spring-graphql-union-with-pagination
+  lifecycle:
+    timeout-per-shutdown-phase: 10s
+server:
+  port: 8086
+  max-http-request-header-size: 16KB
+  shutdown: graceful
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+

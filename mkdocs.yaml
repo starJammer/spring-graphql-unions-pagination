@@ -1,0 +1,7 @@
+site_name: spring-graphql-union-with-pagination
+
+nav:
+  - Architecture: system-architecture.md
+
+plugins:
+  - techdocs-core
