@@ -115,7 +115,7 @@ The resulting error returned from the `integersUnion` field is:
 
 ### Solution Description
 
-Open [thise file](./src/main/kotlin/com/example/graphql/unionpagination/unionvisitor/GraphQLUnionConfiguration.kt) and 
+Open [this file](./src/main/kotlin/com/example/graphql/unionpagination/unionvisitor/GraphQLUnionConfiguration.kt) and 
 go to line 23 and add uncomment it so the bean gets created. (make sure to uncomment the related import too
 at the top of the file)
 
