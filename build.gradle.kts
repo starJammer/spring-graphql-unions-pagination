@@ -33,38 +33,7 @@ val mavenPassword: String? by ext
 
 repositories {
     mavenLocal()
-    maven {
-        name = "nexus-thirdparty"
-        url = uri("https://nexus3.genesis-platform.io/repository/thirdparty/")
-        credentials {
-            username = System.getenv("NEXUS_USERNAME") ?: mavenUser
-            password = System.getenv("NEXUS_PASSWORD") ?: mavenPassword
-        }
-    }
-    maven {
-        name = "nexus-releases"
-        url = uri("https://nexus3.genesis-platform.io/repository/releases/")
-        credentials {
-            username = System.getenv("NEXUS_USERNAME") ?: mavenUser
-            password = System.getenv("NEXUS_PASSWORD") ?: mavenPassword
-        }
-    }
-    maven {
-        name = "nexus-confluent"
-        url = uri("https://nexus3.genesis-platform.io/repository/confluent/")
-        credentials {
-            username = System.getenv("NEXUS_USERNAME") ?: mavenUser
-            password = System.getenv("NEXUS_PASSWORD") ?: mavenPassword
-        }
-    }
-    maven {
-        name = "nexus-central"
-        url = uri("https://nexus3.genesis-platform.io/repository/central/")
-        credentials {
-            username = System.getenv("NEXUS_USERNAME") ?: mavenUser
-            password = System.getenv("NEXUS_PASSWORD") ?: mavenPassword
-        }
-    }
+    mavenCentral()
 }
 
 extra["springCloudVersion"] = "2024.0.0"
