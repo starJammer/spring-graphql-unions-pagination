@@ -116,8 +116,12 @@ The resulting error returned from the `integersUnion` field is:
 ### Solution Description
 
 Open [thise file](./src/main/kotlin/com/example/graphql/unionpagination/unionvisitor/GraphQLUnionConfiguration.kt) and 
-go to line 23 and add uncomment it so the bean gets created. 
-Run the project again and 
+go to line 23 and add uncomment it so the bean gets created. (make sure to uncomment the related import too
+at the top of the file)
+
+Run the project again and attempt the query again and notice that it works.
+If you pass in a negative `first` value you will see that the `NoIntegersFound` object is returned
+instead of an `IntegerConnection`.
 
 `GraphQLUnionConfiguration` will register the [`ConnectionUnderUnionTypeVisitor`](./src/main/kotlin/com/example/graphql/unionpagination/unionvisitor/ConnectionUnderUnionTypeVisitor.kt).
 Read comments on the class for more details but in short it will:

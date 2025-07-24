@@ -1,9 +1,9 @@
 package com.example.graphql.unionpagination.unionvisitor
 
+// import org.springframework.context.annotation.Bean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass
 import org.springframework.boot.autoconfigure.graphql.GraphQlSourceBuilderCustomizer
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.*
 import org.springframework.data.domain.ScrollPosition
 import org.springframework.graphql.data.pagination.CursorStrategy
 import org.springframework.graphql.data.query.SliceConnectionAdapter

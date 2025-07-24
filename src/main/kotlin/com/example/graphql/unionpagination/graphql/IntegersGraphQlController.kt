@@ -55,7 +55,7 @@ class IntegersGraphQlController(
             val tmp2 = scrollSubrange.count().orElse(10)
             Pair(
                 tmp,
-                if ((tmp + tmp2) <= 1000) tmp2 else 1000 - tmp + 1
+                if ((tmp + tmp2) <= 1000) tmp2 else 1000 - tmp + 1,
             )
         }
 
